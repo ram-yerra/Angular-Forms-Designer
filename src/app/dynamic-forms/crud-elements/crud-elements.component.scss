@@ -1,0 +1,19 @@
+.card {
+    padding: 20px 10px;
+    form {
+        .form-unique-id {
+            color: red;
+            text-transform: uppercase;
+        }
+        .form-header {
+            margin-bottom: 20px;
+        }
+    }
+}
+.form-button-group {
+    display: flex;
+    justify-content: flex-end;
+    button {
+        margin-left: 10px;
+    }
+}

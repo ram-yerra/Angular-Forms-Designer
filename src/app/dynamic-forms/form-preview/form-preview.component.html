@@ -1,0 +1,15 @@
+<div class="form-preview-header">
+    <h5>Form Preview</h5>
+    <button type="button" class="btn btn-primary" (click)="hidePreviewForm($event)">Hide Preview Form</button>
+</div>
+<div class="reactive-form-container">
+    <!-- <form [formGroup]="dynamicForm"> -->
+        <ng-container *ngFor="let element of elementsList">
+            <app-input-text [element]="element" *ngIf="element.fieldType === 'text'"></app-input-text>
+            <app-input-text-area [element]="element" *ngIf="element.fieldType === 'textarea'"></app-input-text-area>
+            <app-checkbox [element]="element" *ngIf="element.fieldType === 'checkbox'"></app-checkbox>
+            <app-dropdown [element]="element" *ngIf="element.fieldType === 'dropdown'"></app-dropdown>
+            <app-multi-select [element]="element" *ngIf="element.fieldType === 'multiselect'"></app-multi-select>
+        </ng-container>
+    <!-- </form> -->
+</div>

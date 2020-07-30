@@ -1,0 +1,13 @@
+<div [ngClass]="{'show': !showFormPreview, 'hide': showFormPreview}" class="dynamic-forms-container">
+    <div class="dynamic-forms-wrapper">
+        <div class="dynamic-form-elements-list">
+            <app-elements-list (showAddElementForm)="showAddElementForm($event)" (showFormPreview)="displayFormPreview($event)"></app-elements-list>
+        </div>
+        <div *ngIf="showElementCreatorForm" class="crud-form-elements">
+            <app-crud-elements (showAddElementForm)="showAddElementForm($event)"></app-crud-elements>
+        </div>
+    </div>    
+</div>
+<div *ngIf="showFormPreview" class="form-preview-container">
+    <app-form-preview (showFormPreview)="displayFormPreview($event)"></app-form-preview>
+</div>

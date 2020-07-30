@@ -1,0 +1,33 @@
+.dynamic-forms-container {
+    .dynamic-forms-wrapper {
+        display: flex;
+        padding: 20px;
+        .dynamic-form-elements-list {
+            flex: 1;
+        }
+        .crud-form-elements {
+            width: 30%;
+            padding: 0 10px;
+        }
+    }
+}
+
+.form-preview-container {
+    padding: 20px;
+}
+
+@media (max-width: 1023px) {
+    .dynamic-forms-container {
+        .dynamic-forms-wrapper {
+            flex-wrap: wrap;
+            .crud-form-elements {
+                width: 100%;
+                padding: 0;
+                margin-top: 20px;
+            }
+        }        
+    }
+}
+
+
+

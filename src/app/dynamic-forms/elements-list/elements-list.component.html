@@ -1,0 +1,37 @@
+
+<div class="elements-list card">    
+    <div class="elements-list-header">
+        <h5>All Fields</h5>
+        <button [disabled]="elementsList.length === 0" type="button" class="btn btn-info" (click)="previewForm($event)">
+            <i class="fa fa-search" aria-hidden="true"></i> 
+            Preview Form
+        </button>
+    </div>
+    <div class="list-wrapper">        
+        <div class="list-header">
+            <div class="list-header-order">Order</div>
+            <div class="list-header-name name-col">Field name/Label</div>
+            <div class="list-header-type">Type</div>
+            <div class="list-header-visible">Visible</div>
+            <div class="list-header-required">Required</div>
+        </div>
+        <div *ngIf="elementsList.length === 0" class="empty-list-content">            
+            <h3>Oops! Looks like no elements have been added yet!</h3>
+            <h5>Add elements by clicking on Add Field button to get started!</h5>
+        </div>  
+        <div (click)="editElement(element)" class="list-content" *ngFor="let element of elementsList; index as i;">            
+            <div class="list-content-order">{{element.order}}</div>
+            <div class="list-content-name name-col">{{element.fieldName}}</div>
+            <div class="list-content-type">{{element.fieldType}}</div>
+            <div class="list-content-visible">{{element.visibility}}</div>
+            <div class="list-content-required">{{element.required}}</div>
+        </div>        
+    </div>
+</div>
+<div class="list-footer card-footer">
+    <button type="button" class="btn btn-primary" (click)="addElement($event)">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        Add Field
+    </button>
+</div>
+
