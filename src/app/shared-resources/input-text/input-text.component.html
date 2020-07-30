@@ -1,0 +1,12 @@
+<form [formGroup]="textFormGroup">
+  <div class="form-group" [ngClass]="{'show': element.visibility, 'hide': !element.visibility}">
+      <label [for]="element.fieldName">
+        <span>{{element.fieldName}}</span>
+        <span *ngIf="element.required" class="required">*</span>
+      </label>
+      <input [formControlName]="element.uniqueId" type="text" class="form-control" [id]="element.fieldName" placeholder="">
+      <div class="alert alert-danger" *ngIf="element.required && !textFormGroup.get(element.uniqueId).valid && textFormGroup.get(element.uniqueId).touched">
+        {{element.fieldName}} is required
+      </div>
+  </div>
+</form>

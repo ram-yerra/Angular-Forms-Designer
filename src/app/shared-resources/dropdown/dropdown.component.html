@@ -1,0 +1,18 @@
+<form [formGroup]="dropdownFormGroup">
+  <div class="form-group" [ngClass]="{'show': element.visibility, 'hide': !element.visibility}">
+      <label [for]="element.fieldName">
+        <span>{{element.fieldName}}</span>
+        <span *ngIf="element.required" class="required">*</span>
+      </label>
+      <select [formControlName]="element.uniqueId" class="form-control" [id]="element.fieldName">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <div class="alert alert-danger" *ngIf="element.required && !dropdownFormGroup.get(element.uniqueId).valid && dropdownFormGroup.get(element.uniqueId).touched">
+        {{element.fieldName}} is required
+      </div>
+  </div>
+</form>

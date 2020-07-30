@@ -1,0 +1,12 @@
+<form [formGroup]="textAreaFormGroup">
+  <div class="form-group" [ngClass]="{'show': element.visibility, 'hide': !element.visibility}">
+      <label [for]="element.fieldName">
+        <span>{{element.fieldName}}</span>
+        <span *ngIf="element.required" class="required">*</span>
+      </label>
+      <textarea [formControlName]="element.uniqueId" class="form-control" [id]="element.fieldName" rows="3"></textarea>
+      <div class="alert alert-danger" *ngIf="element.required && !textAreaFormGroup.get(element.uniqueId).valid && textAreaFormGroup.get(element.uniqueId).touched">
+        {{element.fieldName}} is required
+      </div>
+  </div>
+</form>

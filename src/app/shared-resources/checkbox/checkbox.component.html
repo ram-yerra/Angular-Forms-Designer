@@ -1,0 +1,12 @@
+<form [formGroup]="checkboxFormGroup">
+    <div class="form-group form-check" [ngClass]="{'show': element.visibility, 'hide': !element.visibility}">
+        <input [formControlName]="element.uniqueId" type="checkbox" [name]="element.fieldName" class="form-check-input" [id]="element.fieldName">
+        <label class="form-check-label" [for]="element.fieldName">
+            <span>{{element.fieldName}}</span>
+            <span *ngIf="element.required" class="required">*</span>
+        </label>
+        <div class="alert alert-danger" *ngIf="element.required && !checkboxFormGroup.get(element.uniqueId).valid && checkboxFormGroup.get(element.uniqueId).touched">
+            {{element.fieldName}} is required
+        </div>
+    </div>
+</form>
